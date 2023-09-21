@@ -18,7 +18,7 @@ body {
 }
 
 #particles-js {
-    position: fixed; //ganti absolute untuk particle are Home ya aja
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
