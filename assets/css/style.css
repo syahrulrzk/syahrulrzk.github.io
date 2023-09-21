@@ -16,9 +16,9 @@ body {
     color: var(--color-body);
     font-family: var(--font-base), sans-serif;
 }
-/* position: fixed; //ganti absolute untuk particle are Home ya aja */
+
 #particles-js {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
