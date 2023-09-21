@@ -1,1 +1,0 @@
-# syahrulrzk.github.io

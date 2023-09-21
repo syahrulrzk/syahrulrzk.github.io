@@ -17,6 +17,17 @@ body {
     font-family: var(--font-base), sans-serif;
 }
 
+#particles-js {
+    position: fixed; //ganti absolute untuk particle are Home ya aja
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+
 h1,h2,h3,h4,h5,h6 {
     color: var(--color-heading);
     font-weight: 700;
