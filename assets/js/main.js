@@ -13,3 +13,24 @@ AOS.init({
   anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 });
+// Teks yang akan ditampilkan dengan efek typing berjalan
+var text = "With over 2 years of experience in the IT industry, I have focused on designing, managing and optimizing network infrastructure for various projects and companies.";
+
+// Selector elemen paragraf
+var paragraph = document.getElementById("typing-text");
+
+// Inisialisasi indeks teks dan timer
+var index = 0;
+var typingSpeed = 40; // Kecepatan typing (ms)
+
+// Fungsi untuk menampilkan teks secara berurutan
+function type() {
+if (index < text.length) {
+  paragraph.innerHTML += text.charAt(index);
+  index++;
+  setTimeout(type, typingSpeed);
+}
+}
+
+// Panggil fungsi typing 
+type();
