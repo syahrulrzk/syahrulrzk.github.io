@@ -210,3 +210,16 @@ img {
     border-radius: 100px;
     font-size: 24px;
 }
+
+/* Ganti warna latar belakang modal menjadi #022a30 */
+.modal-content {
+    background-color: #f8f9fa!important;
+    color: #212529!important; /* Ganti warna teks jika diperlukan */
+}
+
+/* Ganti warna teks "Read More..." */
+.read-more-btn {
+    color: #0984e3; /* Ganti dengan kode warna yang Anda inginkan */
+    cursor: pointer; /* Mengubah kursor menjadi tanda tangan saat diarahkan ke teks "Read More..." */
+}
+

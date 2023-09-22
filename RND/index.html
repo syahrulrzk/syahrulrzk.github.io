@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Read More/Read Less </title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            padding: 1rem;
+            background-color: #dfe6e9;
+            font-family: 'Lato',sans-serif;
+        }
+
+        .read-more-container{
+            display: flex;
+            flex-direction: column;
+            color: #111;
+            gap: 1rem;
+        }
+
+        .container{
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 2px;
+            line-height: 1.4rem;
+            box-shadow: 0 0 1rem rgba(0,0,0,.1);
+        }
+
+        .read-more-btn{
+            color: #0984e3;
+        }
+
+        .read-more-text{
+            display: none;
+        }
+
+        .read-more-text--show{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="read-more-container">
+
+        <div class="container">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda!
+                <span class="read-more-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
+                </span>
+            </p>
+            <span class="read-more-btn">Read More...</span>
+        </div>
+
+        <div class="container">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda!
+                <span class="read-more-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
+                </span>
+            </p>
+            <span class="read-more-btn">Read More...</span>
+        </div>
+
+    </div>
+
+
+    <script>
+        const parentContainer =  document.querySelector('.read-more-container');
+
+        parentContainer.addEventListener('click', event=>{
+
+            const current = event.target;
+
+            const isReadMoreBtn = current.className.includes('read-more-btn');
+
+            if(!isReadMoreBtn) return;
+
+            const currentText = event.target.parentNode.querySelector('.read-more-text');
+
+            currentText.classList.toggle('read-more-text--show');
+
+            current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
+
+        })
+    </script>
+
+</body>
+</html>

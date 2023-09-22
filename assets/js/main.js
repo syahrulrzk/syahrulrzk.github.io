@@ -34,3 +34,26 @@ if (index < text.length) {
 
 // Panggil fungsi typing 
 type();
+
+
+//read More...
+
+// Temukan semua elemen dengan kelas "read-more-btn"
+var readMoreButtons = document.querySelectorAll(".read-more-btn");
+
+// Tambahkan event listener untuk setiap tombol "Read More..."
+readMoreButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        // Temukan elemen teks tambahan yang terkait dengan tombol yang diklik
+        var readMoreText = button.parentElement.querySelector(".read-more-text");
+        
+        // Toggle (sembunyikan/tampilkan) teks tambahan
+        if (readMoreText.style.display === "none" || readMoreText.style.display === "") {
+            readMoreText.style.display = "inline"; // Tampilkan teks tambahan
+            button.textContent = "Read Less"; // Ubah teks tombol menjadi "Read Less"
+        } else {
+            readMoreText.style.display = "none"; // Sembunyikan teks tambahan
+            button.textContent = "Read More..."; // Kembalikan teks tombol menjadi "Read More..."
+        }
+    });
+});
