@@ -39,21 +39,54 @@ type();
 //read More...
 
 // Temukan semua elemen dengan kelas "read-more-btn"
-var readMoreButtons = document.querySelectorAll(".read-more-btn");
+// var readMoreButtons = document.querySelectorAll(".read-more-btn");
 
-// Tambahkan event listener untuk setiap tombol "Read More..."
-readMoreButtons.forEach(function(button) {
-    button.addEventListener("click", function() {
-        // Temukan elemen teks tambahan yang terkait dengan tombol yang diklik
-        var readMoreText = button.parentElement.querySelector(".read-more-text");
+// // Tambahkan event listener untuk setiap tombol "Read More..."
+// readMoreButtons.forEach(function(button) {
+//     button.addEventListener("click", function() {
+//         // Temukan elemen teks tambahan yang terkait dengan tombol yang diklik
+//         var readMoreText = button.parentElement.querySelector(".read-more-text");
         
-        // Toggle (sembunyikan/tampilkan) teks tambahan
-        if (readMoreText.style.display === "none" || readMoreText.style.display === "") {
-            readMoreText.style.display = "inline"; // Tampilkan teks tambahan
-            button.textContent = "Read Less"; // Ubah teks tombol menjadi "Read Less"
-        } else {
-            readMoreText.style.display = "none"; // Sembunyikan teks tambahan
-            button.textContent = "Read More..."; // Kembalikan teks tombol menjadi "Read More..."
+//         // Toggle (sembunyikan/tampilkan) teks tambahan
+//         if (readMoreText.style.display === "none" || readMoreText.style.display === "") {
+//             readMoreText.style.display = "inline"; // Tampilkan teks tambahan
+//             button.textContent = "Read Less"; // Ubah teks tombol menjadi "Read Less"
+//         } else {
+//             readMoreText.style.display = "none"; // Sembunyikan teks tambahan
+//             button.textContent = "Read More..."; // Kembalikan teks tombol menjadi "Read More..."
+//         }
+//     });
+// });
+
+
+
+
+// function toggleResponsibilities(button) {
+//   var responsibilities = button.previousElementSibling; // Mencari elemen sebelumnya
+
+//   if (responsibilities.style.display === 'none' || responsibilities.style.display === '') {
+//       responsibilities.style.display = 'block';
+//   } else {
+//       responsibilities.style.display = 'none';
+//   }
+// }
+
+var activeResponsibility = null;
+
+function toggleResponsibilities(id) {
+    var responsibilities = document.getElementById(id);
+
+    if (responsibilities.style.display === 'none' || responsibilities.style.display === '') {
+        responsibilities.style.display = 'block';
+        if (activeResponsibility && activeResponsibility !== responsibilities) {
+            activeResponsibility.style.display = 'none';
         }
-    });
-});
+        activeResponsibility = responsibilities;
+    } else {
+        responsibilities.style.display = 'none';
+    }
+}
+
+
+
+

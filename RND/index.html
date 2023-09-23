@@ -52,48 +52,50 @@
     
     <div class="read-more-container">
 
-        <div class="container">
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda!
-                <span class="read-more-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
-                </span>
-            </p>
-            <span class="read-more-btn">Read More...</span>
-        </div>
 
-        <div class="container">
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, facere? Quae distinctio reprehenderit soluta fugiat, alias, doloremque similique tenetur magni voluptate a, perspiciatis quaerat! Necessitatibus velit consectetur expedita consequatur assumenda!
-                <span class="read-more-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi quaerat, amet explicabo magnam, nulla porro dolorem itaque
+    <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+        <div class="bg-base p-4 rounded-4 shadow-effect">
+            <h4>Information Technology Engineer</h4>
+            <p class="text-brand mb-2">PT. Graha Karya Informasi (2022 - Ongoing)</p>
+            <p class="mb-0">
+                <span class="read-more-text" style="display: none;">
+                    As a member of this team, I have the important responsibility to support the company's success in achieving our goals.
                 </span>
             </p>
-            <span class="read-more-btn">Read More...</span>
+            <ul class="read-more-text" style="display: none;">
+                <li>Installation and Configuration: Install network hardware and software and run everything as required.</li>
+                <li>Maintenance: Maintaining the network, fixing problems if any, and maintaining security.</li>
+                <li>Problem Analysis: Identify and resolve network problems.</li>
+                <li>Performance Monitoring: Ensuring network performance remains good.</li>
+                <li>Technical Support: Helps users solve network problems.</li>
+                <li>Collaboration: Work together with other IT teams.</li>
+            </ul>
+            <span class="read-more-btn" onclick="toggleResponsibilities()">Read More...</span>
         </div>
+    </div>
 
     </div>
 
 
-    <script>
-        const parentContainer =  document.querySelector('.read-more-container');
 
-        parentContainer.addEventListener('click', event=>{
 
-            const current = event.target;
 
-            const isReadMoreBtn = current.className.includes('read-more-btn');
 
-            if(!isReadMoreBtn) return;
 
-            const currentText = event.target.parentNode.querySelector('.read-more-text');
 
-            currentText.classList.toggle('read-more-text--show');
+<script>
+    function toggleResponsibilities() {
+        var responsibilities = document.querySelectorAll('.read-more-text');
 
-            current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
-
-        })
-    </script>
+        responsibilities.forEach(function (element) {
+            if (element.style.display === 'none' || element.style.display === '') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

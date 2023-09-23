@@ -213,7 +213,7 @@ img {
 
 /* Ganti warna latar belakang modal menjadi #022a30 */
 .modal-content {
-    background-color: #f8f9fa!important;
+    background-color: #F1F0E8;
     color: #212529!important; /* Ganti warna teks jika diperlukan */
 }
 
