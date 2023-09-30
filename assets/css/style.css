@@ -213,8 +213,8 @@ img {
 
 /* Ganti warna latar belakang modal menjadi #022a30 */
 .modal-content {
-    background-color: #F1F0E8;
-    color: #212529!important; /* Ganti warna teks jika diperlukan */
+    background-color: #033f47;/*#F1F0E8;*/
+    /*color: #212529!important;*/ /* Ganti warna teks jika diperlukan */
 }
 
 /* Ganti warna teks "Read More..." */
