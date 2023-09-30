@@ -128,7 +128,12 @@ img {
     padding: 12px 28px;
     font-weight: 700;
 }
-
+/* Mengubah warna latar belakang tombol close menjadi putih */
+.btn-close {
+    background-color: white;
+    color: #000; /* Warna teks tombol close */
+    border: none; /* Menghilangkan border tombol close */
+}
 .btn-brand {
     background-color: var(--color-brand);
     border-color: var(--color-brand);
@@ -222,4 +227,7 @@ img {
     color: #0984e3; /* Ganti dengan kode warna yang Anda inginkan */
     cursor: pointer; /* Mengubah kursor menjadi tanda tangan saat diarahkan ke teks "Read More..." */
 }
+
+
+
 
