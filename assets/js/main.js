@@ -56,4 +56,47 @@ var readMoreButtons = document.querySelectorAll('.read-more-btn');
     });
 
 
+// send msg
+// name%3A%0Assssss%0Aemail%3A%0Assssss%0Asubject%3A%0Asssssss%0Amsg%3A%0Assssss%0A
+
+function sendMsg() {
+    var form = document.querySelector('form');
+    if (form.checkValidity()) {
+        // Semua bidang yang diperlukan telah diisi
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var msg = document.getElementById('msg').value;
+
+        var formattedMsg = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nPesan:\n${msg}`;
+
+        var token = '6581933502:AAE6y-rPZE2ZO_mQPh2aUSh5JBE5BYiajF0';
+        var grup = '-4078684754';
+
+        $.ajax({
+            url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${encodeURIComponent(formattedMsg)}&parse_mode=html`,
+            method: 'POST',
+            success: function() {
+                // Tampilkan notifikasi pesan berhasil dengan efek fadeIn
+                var successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                successMessage.classList.add('alert-success');
+
+                // Hapus pesan notifikasi setelah beberapa detik dengan efek fadeOut
+                setTimeout(function() {
+                    successMessage.classList.remove('alert-success');
+                    successMessage.style.animation = 'fadeOut 0.5s ease-in-out';
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            }
+        });
+
+        event.preventDefault();
+    } else {
+        // Tampilkan pesan kesalahan atau tindakan yang sesuai
+        alert("Please fill in all required fields before sending the message.");
+    }
+}
 

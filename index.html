@@ -335,21 +335,29 @@ Bootstraps 5.2
                     <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
                         <form action="#" class="row g-lg-3 gy-3">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Enter your name">
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div> 
+                            <div class="form-group col-12">
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject" required>
                             </div>
                             <div class="form-group col-12">
-                                <input type="text" class="form-control" placeholder="Enter subject">
-                            </div>
-                            <div class="form-group col-12">
-                                <textarea name="" rows="4" class="form-control" placeholder="Enter your message"></textarea>
+                                <textarea name="" rows="4" class="form-control" id="msg" placeholder="Enter your message" required></textarea>
                             </div>
                             <div class="form-group col-12 d-grid">
-                                <button type="submit" class="btn btn-brand">Contact me</button>
+                                <button type="submit" class="btn btn-brand " id="send" onclick="sendMsg()">Contact me</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <div class="alert alert-success" id="successMessage" style="display: none;">
+                            Message sent successfully!
+                        </div>
                     </div>
                 </div>
 
@@ -520,6 +528,7 @@ Bootstraps 5.2
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/aos.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

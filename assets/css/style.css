@@ -140,7 +140,10 @@ img {
     color: var(--color-base);
 }
 
-.btn-brand:hover,
+/* CSS untuk mengubah warna teks tombol pada hover */
+.btn.btn-brand:hover {
+    color: #FFA500; /* Ganti dengan warna yang Anda inginkan */
+}
 .btn-brand:focus {
     background-color: var(--color-brand2);
     color: var(--color-base);
@@ -231,6 +234,34 @@ img {
 /* Mengubah warna border pada elemen dengan kelas "img-thumbnail" */
 .img-thumbnail {
     border-color: #b6cbce; /* Gantilah [warna-pilihan-anda] dengan kode warna yang Anda inginkan */
+}
+
+/* CSS untuk efek fadeIn dan fadeOut */
+.alert-success {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 
