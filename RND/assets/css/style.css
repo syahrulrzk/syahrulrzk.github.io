@@ -151,7 +151,7 @@ img {
 }
 
 .link-custom {
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
 }
 
@@ -227,8 +227,13 @@ img {
 
 /* Ganti warna teks "Read More..." */
 .read-more-btn {
-    color: #0984e3; /* Ganti dengan kode warna yang Anda inginkan */
+    color: #b6cbce; /* Ganti dengan kode warna yang Anda inginkan */
     cursor: pointer; /* Mengubah kursor menjadi tanda tangan saat diarahkan ke teks "Read More..." */
+}
+/* Mengubah warna teks menjadi merah saat kursor menyentuh */
+.read-more-btn:hover {
+    color: #f0fdb5;
+    cursor: pointer;
 }
 
 /* Mengubah warna border pada elemen dengan kelas "img-thumbnail" */
