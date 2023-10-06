@@ -182,6 +182,24 @@ img {
 .card-custom:hover .card-custom-image img {
     transform: scale(1.1);
 }
+/* ========================================================== */
+.card-custom-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-custom-image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 10%, black 100%);
+  opacity: 0.6; /* Sesuaikan dengan keinginan Anda */
+  z-index: 1; /* Pindahkan efek ke belakang gambar */
+}
 
 /* CONTACT */
 #contact .form-control {
