@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
 
 :root {
     --color-body: #b6cbce;
@@ -113,9 +113,47 @@ img {
         background-position: center;
     }
 
-    .navbar-brand img {
-        border: 8px solid var(--color-brand);
+    /* .navbar-brand img {
+        border: 
+    } */
+
+    .navbar-brand {
+        position: relative;
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--color-brand);
     }
+
+    .navbar-brand img {
+        width: 165px; /* Ukuran tetap gambar */
+        height: 165px; /* Ukuran tetap gambar */
+        border-radius: 100%; /* Membuat border menjadi lingkaran */
+        transition: transform 0.5s; 
+        position: relative; /* Dibutuhkan untuk animasi */
+        /* transition: transform 0.1s; Animasi transisi */
+        /* border: 3px solid var(--color-brand); Border tetap */
+    }
+
+
+
+    .navbar-brand img:hover {
+        
+        /* animation: move 0.7s infinite; Menambahkan animasi saat hover */
+        transform: scale(1.5) rotate(360deg); /* Skala dan rotasi saat hover */
+        /* transform: scale(1.1); Efek zoom pertama kali hover */
+        
+    }
+
+    /* @keyframes move {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(70px, -70px); }
+        50% { transform: translate(-80px, 80px); }
+        75% { transform: translate(-90px, -90px); }
+        100% { transform: translate(100px, 100px); }
+    } */
+
+    
 
     /* CONTENT WRAPPER */
     #content-wrapper {

@@ -36,6 +36,19 @@ if (index < text.length) {
 type();
 
 
+// === disable clik kanan
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// === disable clik kanan pada image profile
+document.addEventListener('DOMContentLoaded', (event) => {
+    const img = document.querySelector('.navbar-brand img');
+    img.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+    });
+});
+
 //read More... or read less
 
 var readMoreButtons = document.querySelectorAll('.read-more-btn');
