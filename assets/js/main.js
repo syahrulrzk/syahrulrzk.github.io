@@ -14,7 +14,7 @@ AOS.init({
 
 });
 // Teks yang akan ditampilkan dengan efek typing berjalan
-var text = "With over 2 years of experience in the IT industry, I have focused on designing, managing and optimizing network infrastructure for various projects and companies.";
+var text = "With over 3 years of experience in the IT industry, I have focused on designing, managing and optimizing network infrastructure for various projects and companies.";
 
 // Selector elemen paragraf
 var paragraph = document.getElementById("typing-text");
