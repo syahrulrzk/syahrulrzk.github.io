@@ -65,14 +65,33 @@ img {
     padding-bottom: 80px;
     border-bottom: 2px solid rgba(255,255,255, 0.1);
 }
-
-.shadow-effect {
-    transition: all 0.5s;
+/* Tambahkan CSS untuk Horizontal Scroll */
+/* Wrapper untuk Horizontal Scroll */
+.blog-horizontal-scroll-wrapper {
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    white-space: nowrap; /* Mencegah wrap pada konten */
+    padding-bottom: 1rem; /* Spasi bawah opsional */
 }
 
-.shadow-effect:hover {
-    box-shadow: -6px 6px 0 0 var(--color-brand);
+/* Container untuk semua card */
+
+
+/* Lebar setiap card */
+.blog-card {
+    flex: 0 0 auto; /* Tetapkan lebar card tetap */
+    width: 300px; /* Atur lebar card sesuai kebutuhan */
 }
+.card-custom-image img {
+    height: 200px; /* Atur tinggi gambar sesuai kebutuhan */
+    object-fit: cover; /* Pastikan gambar tidak distretch */
+}
+/* == */
+.card-custom {
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Mencegah konten keluar dari batas */
+}
+
+/* == */
 
 .iconbox {
     width: 60px;
