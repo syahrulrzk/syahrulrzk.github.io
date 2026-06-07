@@ -416,9 +416,10 @@ img {
 /* CLIENT LOGO GRID (Modal) */
 .client-logos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(5, auto);
+    gap: 10px;
     margin-top: 16px;
+    justify-content: start;
 }
 .client-logos::before {
     content: "Klien Kami";
@@ -431,8 +432,8 @@ img {
     letter-spacing: 0.05em;
 }
 .client-logo-box {
-    width: 100%;
-    aspect-ratio: 1;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     overflow: hidden;
     background: #fff;
@@ -450,7 +451,7 @@ img {
 .client-logo-box svg {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 }
 
