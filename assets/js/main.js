@@ -179,6 +179,114 @@ var readMoreButtons = document.querySelectorAll('.read-more-btn');
 
 
 
+// === PARTY MODE: KONAMI CODE + CURSOR TRAIL + CLICK BURST ===
+document.addEventListener('DOMContentLoaded', function () {
+
+    // 1. EASTER EGG: ↑↑↓↓←→←→G M (Good Morning!)
+    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 71, 77];
+    var konamiIndex = 0;
+    document.addEventListener('keydown', function (e) {
+        if (e.keyCode === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                konamiIndex = 0;
+                triggerPartyMode();
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    function triggerPartyMode() {
+        // Confetti burst
+        for (var i = 0; i < 80; i++) {
+            setTimeout(function () { createConfetti(); }, i * 30);
+        }
+        // Body shake
+        document.body.classList.add('party-mode');
+        setTimeout(function () { document.body.classList.remove('party-mode'); }, 600);
+        // Big burst from center
+        createBigBurst(window.innerWidth / 2, window.innerHeight / 2);
+        setTimeout(function () { createBigBurst(window.innerWidth / 4, window.innerHeight / 4); }, 200);
+        setTimeout(function () { createBigBurst(window.innerWidth * 3 / 4, window.innerHeight * 3 / 4); }, 400);
+        // Show "GM BRO!" popup
+        showGmPopup();
+    }
+
+    function showGmPopup() {
+        var popup = document.createElement('div');
+        popup.className = 'gm-popup';
+        popup.innerHTML = 'GM BRO! 🎉<br><small>DMNA BRO?</small>';
+        document.body.appendChild(popup);
+        setTimeout(function () { popup.classList.add('show'); }, 50);
+        setTimeout(function () {
+            popup.classList.remove('show');
+            setTimeout(function () { popup.remove(); }, 500);
+        }, 4000);
+    }
+
+    function createConfetti() {
+        var colors = ['#e0f780', '#deff58', '#033f47', '#ffffff', '#ffd700'];
+        var piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        piece.style.width = (Math.random() * 8 + 6) + 'px';
+        piece.style.height = (Math.random() * 8 + 6) + 'px';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        document.body.appendChild(piece);
+        setTimeout(function () { piece.remove(); }, 4000);
+    }
+
+    function createBigBurst(x, y) {
+        for (var i = 0; i < 20; i++) {
+            createBurstParticle(x, y);
+        }
+    }
+
+    function createBurstParticle(x, y) {
+        var p = document.createElement('div');
+        p.className = 'burst-particle';
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 120 + 60;
+        var tx = Math.cos(angle) * speed;
+        var ty = Math.sin(angle) * speed;
+        p.style.transition = 'all 0.8s ease-out';
+        document.body.appendChild(p);
+        requestAnimationFrame(function () {
+            p.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(0)';
+            p.style.opacity = '0';
+        });
+        setTimeout(function () { p.remove(); }, 900);
+    }
+
+    // 2. CURSOR TRAIL
+    var lastTrail = 0;
+    document.addEventListener('mousemove', function (e) {
+        var now = Date.now();
+        if (now - lastTrail < 40) return;
+        lastTrail = now;
+        var trail = document.createElement('div');
+        trail.className = 'cursor-trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        document.body.appendChild(trail);
+        setTimeout(function () { trail.remove(); }, 600);
+    });
+
+    // 3. CLICK PARTICLE BURST
+    document.addEventListener('click', function (e) {
+        // Skip if clicking on links/buttons to avoid distraction
+        if (e.target.closest('a, button, input, textarea')) return;
+        for (var i = 0; i < 12; i++) {
+            createBurstParticle(e.clientX, e.clientY);
+        }
+    });
+});
+
 // === SCROLLSPY ACTIVE STATE ===
 document.addEventListener('DOMContentLoaded', function () {
     var sections = document.querySelectorAll('section[id]');
