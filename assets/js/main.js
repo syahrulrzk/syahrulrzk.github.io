@@ -181,6 +181,59 @@ var readMoreButtons = document.querySelectorAll('.read-more-btn');
 
 
 
+// === SCROLLSPY ACTIVE STATE ===
+document.addEventListener('DOMContentLoaded', function () {
+    var sections = document.querySelectorAll('section[id]');
+    var allLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .nav-sub-link');
+    var navParents = document.querySelectorAll('.nav-parent');
+
+    function clearActive() {
+        allLinks.forEach(function (link) {
+            link.classList.remove('active');
+        });
+        navParents.forEach(function (p) {
+            p.classList.remove('active');
+        });
+    }
+
+    function updateActiveNav() {
+        var scrollPos = window.scrollY + 200;
+
+        sections.forEach(function (section) {
+            var top = section.offsetTop;
+            var height = section.offsetHeight;
+            var id = section.getAttribute('id');
+
+            if (scrollPos >= top && scrollPos < top + height) {
+                clearActive();
+
+                // Find matching link
+                var matchingLink = document.querySelector('.nav-link[href="#' + id + '"], .nav-sub-link[href="#' + id + '"]');
+                if (matchingLink) {
+                    matchingLink.classList.add('active');
+
+                    // If it's a sub-link, also activate parent and expand sub-menu
+                    var parentCollapse = matchingLink.closest('.collapse');
+                    if (parentCollapse && parentCollapse.id !== 'navbarNav') {
+                        var parentToggle = parentCollapse.previousElementSibling;
+                        if (parentToggle && parentToggle.classList.contains('nav-parent')) {
+                            parentToggle.classList.add('active');
+                        }
+                        // Auto-expand sub-menu collapse on mobile
+                        if (!parentCollapse.classList.contains('show')) {
+                            parentCollapse.classList.add('show');
+                            parentToggle.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault();

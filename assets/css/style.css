@@ -283,10 +283,16 @@ img {
     text-align: center;
 }
 
-.nav-sub-link:hover {
+.nav-sub-link:hover,
+.nav-sub-link.active {
     color: var(--color-brand);
     background: rgba(224, 247, 128, 0.1);
     text-decoration: none;
+}
+
+.navbar .nav-link.active {
+    color: var(--color-brand);
+    background: rgba(224, 247, 128, 0.1);
 }
 
 @media (min-width: 992px) {
@@ -780,4 +786,60 @@ img {
 @media (max-width: 768px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .stat-number { font-size: 1.8rem; }
+}
+
+/* Mobile Navbar Fix */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+    .navbar .container.flex-lg-column {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-brand {
+        margin: 0;
+        flex-shrink: 0;
+    }
+    .navbar-brand img {
+        width: 36px !important;
+        height: 36px !important;
+        border-width: 2px;
+    }
+    .navbar-toggler {
+        padding: 4px 8px;
+        font-size: 1rem;
+    }
+    #navbarNav {
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        margin-top: 6px;
+        padding-top: 4px;
+        text-align: left;
+    }
+    .navbar-nav {
+        gap: 0;
+        padding: 0;
+    }
+    .navbar-nav .text-lg-center {
+        text-align: left;
+    }
+    .navbar-nav .nav-link {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    .nav-parent {
+        justify-content: flex-start;
+    }
+    .nav-sub {
+        padding-left: 16px;
+        text-align: left;
+    }
+    .nav-sub-link {
+        padding: 6px 20px;
+        font-size: 0.72rem;
+        text-align: left;
+    }
 }
