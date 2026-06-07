@@ -753,22 +753,24 @@
 <script src="./assets/js/main.js" defer></script>
 
 <script>
-// Toggle caret icon on collapse
-document.querySelectorAll('.nav-parent').forEach(function(el) {
-    el.addEventListener('click', function() {
-        var expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle caret icon on collapse
+    document.querySelectorAll('.nav-parent').forEach(function(el) {
+        el.addEventListener('click', function() {
+            var expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+        });
     });
-});
 
-// Close mobile nav when sub-link is clicked
-document.querySelectorAll('.nav-sub-link').forEach(function(link) {
-    link.addEventListener('click', function() {
-        var navCollapse = document.getElementById('navbarNav');
-        if (navCollapse && navCollapse.classList.contains('show')) {
-            var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
-            if (bsCollapse) bsCollapse.hide();
-        }
+    // Close mobile nav when sub-link is clicked
+    document.querySelectorAll('.nav-sub-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+            var navCollapse = document.getElementById('navbarNav');
+            if (navCollapse && navCollapse.classList.contains('show')) {
+                var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+                if (bsCollapse) bsCollapse.hide();
+            }
+        });
     });
 });
 </script>
