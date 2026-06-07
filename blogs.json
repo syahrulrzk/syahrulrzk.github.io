@@ -13,11 +13,32 @@
     "image": "./assets/images/blog/cisco.png",
     "url": "https://github.com/syahrulrzk/Cisco-Routing-and-Switching"
   },
-    {
+  {
     "id": 3,
-    "date": "01 Oct, 2006",
-    "title": "Get to know more",
+    "date": "15 Oct, 2026",
+    "title": "Understanding Linux Server Administration",
+    "image": "./assets/images/blog/docker.png",
+    "url": "https://github.com/syahrulrzk"
+  },
+  {
+    "id": 4,
+    "date": "20 Oct, 2026",
+    "title": "Network Security Best Practices 2026",
     "image": "./assets/images/blog/cisco.png",
-    "url": "https://github.com/syahrulrzk/Cisco-Routing-and-Switching"
+    "url": "https://github.com/syahrulrzk"
+  },
+  {
+    "id": 5,
+    "date": "25 Oct, 2026",
+    "title": "Introduction to Cloud Computing & Virtualization",
+    "image": "./assets/images/blog/docker.png",
+    "url": "https://github.com/syahrulrzk"
+  },
+  {
+    "id": 6,
+    "date": "30 Oct, 2026",
+    "title": "Automation with Ansible: Getting Started",
+    "image": "./assets/images/blog/cisco.png",
+    "url": "https://github.com/syahrulrzk"
   }
 ]

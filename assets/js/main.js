@@ -49,6 +49,117 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+// === SLIDER ENGINE (reusable)
+function initSlider(trackId, dotsId) {
+    var track = document.getElementById(trackId);
+    if (!track) return;
+
+    var slides = track.querySelectorAll('.work-slide');
+    if (slides.length === 0) return;
+
+    // Find buttons from the section container
+    var section = track.closest('section');
+    var navBottom = section ? section.querySelector('.slider-nav-bottom') : null;
+    var prevBtn = navBottom ? navBottom.querySelector('.slider-btn-prev') : null;
+    var nextBtn = navBottom ? navBottom.querySelector('.slider-btn-next') : null;
+    var dotsContainer = document.getElementById(dotsId);
+
+    var currentIndex = 0;
+    var totalSlides = slides.length;
+    var slidesPerView = getSlidesPerView();
+    var maxIndex = Math.max(0, totalSlides - slidesPerView);
+
+    function createDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        var dotsCount = Math.max(1, maxIndex + 1);
+        for (var i = 0; i < dotsCount; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dot.addEventListener('click', function () {
+                var idx = parseInt(this.getAttribute('data-index'));
+                goToSlide(idx);
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function getSlidesPerView() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 991) return 2;
+        return 3;
+    }
+
+    function updateSlideWidth() {
+        slidesPerView = getSlidesPerView();
+        maxIndex = Math.max(0, totalSlides - slidesPerView);
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        updateDots();
+    }
+
+    function goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index > maxIndex) index = maxIndex;
+        currentIndex = index;
+        var scrollTo = 0;
+        for (var i = 0; i < currentIndex; i++) {
+            scrollTo += slides[i].offsetWidth + (parseInt(window.getComputedStyle(track).gap) || 24);
+        }
+        track.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        updateDots();
+    }
+
+    function updateDots() {
+        if (!dotsContainer) return;
+        var dots = dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach(function (d, i) {
+            if (i === currentIndex) d.classList.add('active');
+            else d.classList.remove('active');
+        });
+    }
+
+    // Button listeners
+    if (prevBtn) prevBtn.addEventListener('click', function () { goToSlide(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goToSlide(currentIndex + 1); });
+
+    // Track scroll sync dots
+    track.addEventListener('scroll', function () {
+        var gap = parseInt(window.getComputedStyle(track).gap) || 24;
+        var scrollPos = track.scrollLeft;
+        var newIndex = 0;
+        var accumulated = 0;
+        for (var i = 0; i < slides.length; i++) {
+            if (scrollPos >= accumulated - 10) newIndex = i;
+            accumulated += slides[i].offsetWidth + gap;
+        }
+        if (newIndex > maxIndex) newIndex = maxIndex;
+        if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateDots();
+        }
+    });
+
+    // Recalculate on resize
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            updateSlideWidth();
+            goToSlide(currentIndex);
+        }, 200);
+    });
+
+    // Init
+    createDots();
+    updateSlideWidth();
+}
+
+// Init both sliders on load
+document.addEventListener('DOMContentLoaded', function () {
+    initSlider('workSlider', 'sliderDots');
+});
+
 //read More... or read less
 
 var readMoreButtons = document.querySelectorAll('.read-more-btn');
