@@ -329,11 +329,12 @@ img {
 
 
     .navbar-brand img:hover {
+        animation: spin 0.3s linear infinite;
+    }
 
-        /* animation: move 0.7s infinite; Menambahkan animasi saat hover */
-        transform: scale(1.5) rotate(360deg); /* Skala dan rotasi saat hover */
-        /* transform: scale(1.1); Efek zoom pertama kali hover */
-
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
 
     /* @keyframes move {
