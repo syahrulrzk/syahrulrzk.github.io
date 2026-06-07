@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
 
 :root {
     --color-body: #b6cbce;
@@ -250,7 +250,7 @@ img {
     }
 
     /* .navbar-brand img {
-        border: 
+        border:
     } */
 
     .navbar-brand {
@@ -265,7 +265,7 @@ img {
         width: 165px; /* Ukuran tetap gambar */
         height: 165px; /* Ukuran tetap gambar */
         border-radius: 100%; /* Membuat border menjadi lingkaran */
-        transition: transform 0.5s; 
+        transition: transform 0.5s;
         position: relative; /* Dibutuhkan untuk animasi */
         /* transition: transform 0.1s; Animasi transisi */
         /* border: 3px solid var(--color-brand); Border tetap */
@@ -274,11 +274,11 @@ img {
 
 
     .navbar-brand img:hover {
-        
+
         /* animation: move 0.7s infinite; Menambahkan animasi saat hover */
         transform: scale(1.5) rotate(360deg); /* Skala dan rotasi saat hover */
         /* transform: scale(1.1); Efek zoom pertama kali hover */
-        
+
     }
 
     /* @keyframes move {
@@ -289,7 +289,7 @@ img {
         100% { transform: translate(100px, 100px); }
     } */
 
-    
+
 
     /* CONTENT WRAPPER */
     #content-wrapper {
@@ -455,6 +455,221 @@ img {
     display: block;
 }
 
+/* SKILLS */
+.skill-item {
+    background: var(--color-base);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+.skill-item:hover {
+    border-color: rgba(224, 247, 128, 0.2);
+    transform: translateY(-4px);
+}
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--color-brand);
+}
+.skill-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    display: block;
+    margin-bottom: 4px;
+}
+.skill-sub {
+    font-size: 0.65rem;
+    color: var(--color-body);
+    opacity: 0.7;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Divider */
+.section-divider {
+    border: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--color-brand), transparent);
+    margin: 30px auto;
+    width: 60%;
+    border-radius: 2px;
+}
+
+/* SERVICES */
+.service-card {
+    background: var(--color-base);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    height: 100%;
+}
+.service-card:hover {
+    border-color: rgba(224, 247, 128, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    background: rgba(224, 247, 128, 0.08);
+    border-radius: 50%;
+    color: var(--color-brand);
+}
+.service-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+.service-card p {
+    font-size: 0.85rem;
+    color: var(--color-body);
+    margin-bottom: 0;
+}
+
+/* CERTIFICATIONS */
+.cert-card {
+    background: var(--color-base);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    height: 100%;
+}
+.cert-card:hover {
+    border-color: rgba(224, 247, 128, 0.2);
+    transform: translateY(-3px);
+}
+.cert-badge {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(224, 247, 128, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--color-brand);
+}
+.cert-info h5 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+.cert-info p {
+    font-size: 0.75rem;
+    color: var(--color-body);
+    margin-bottom: 0;
+}
+
+/* STATS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.stat-item {
+    text-align: center;
+    padding: 28px 16px;
+    background: var(--color-base);
+    border-radius: 16px;
+    border: 1px solid rgba(224, 247, 128, 0.08);
+    transition: all 0.3s ease;
+}
+.stat-item:hover {
+    border-color: rgba(224, 247, 128, 0.3);
+    transform: translateY(-3px);
+}
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--color-body);
+    opacity: 0.7;
+}
+
+/* TESTIMONIALS */
+.testimonial-card {
+    background: var(--color-base);
+    border-radius: 14px;
+    padding: 28px 22px;
+    border: 1px solid rgba(224, 247, 128, 0.06);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+    border-color: rgba(224, 247, 128, 0.2);
+    transform: translateY(-3px);
+}
+.testimonial-text {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-body);
+    margin-bottom: 16px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+    min-height: 44px;
+}
+.testimonial-text i {
+    color: var(--color-brand);
+    opacity: 0.4;
+    margin-right: 4px;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(224, 247, 128, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--color-brand);
+    flex-shrink: 0;
+}
+.testimonial-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+.testimonial-role {
+    font-size: 0.7rem;
+    color: var(--color-body);
+    opacity: 0.6;
+}
+
 /* SOCIAL ICONS */
 .social-icons a {
     width: 40px;
@@ -512,4 +727,8 @@ img {
     }
 }
 
-
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat-number { font-size: 1.8rem; }
+}
