@@ -230,14 +230,63 @@ img {
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .navbar .nav-link:hover {
     color: var(--color-brand);
+    background: rgba(224, 247, 128, 0.1);
 }
 
 .navbar .nav-link.active {
     color: var(--color-brand);
+}
+
+/* Nav Sub (Collapse/Accordion) */
+.nav-parent {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.nav-parent::after {
+    display: none !important;
+}
+
+.caret-icon {
+    display: none;
+}
+
+.nav-parent[aria-expanded="true"] .caret-icon {
+    transform: rotate(180deg);
+}
+
+.nav-sub {
+    padding-left: 0;
+    text-align: center;
+}
+
+.nav-sub-link {
+    display: block;
+    padding: 8px 18px;
+    color: var(--color-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.nav-sub-link:hover {
+    color: var(--color-brand);
+    background: rgba(224, 247, 128, 0.1);
+    text-decoration: none;
 }
 
 @media (min-width: 992px) {

@@ -26,12 +26,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
                 <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
-                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                <li class="nav-item">
+                    <a class="nav-link nav-parent" data-bs-toggle="collapse" href="#subAbout" role="button" aria-expanded="false" aria-controls="subAbout">About <span class="caret-icon"></span></a>
+                    <div class="collapse nav-sub" id="subAbout">
+                        <a class="nav-sub-link" href="#about">About Me</a>
+                        <a class="nav-sub-link" href="#skills">Skills</a>
+                        <a class="nav-sub-link" href="#services">Services</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-parent" data-bs-toggle="collapse" href="#subWork" role="button" aria-expanded="false" aria-controls="subWork">Work <span class="caret-icon"></span></a>
+                    <div class="collapse nav-sub" id="subWork">
+                        <a class="nav-sub-link" href="#work">Projects</a>
+                        <a class="nav-sub-link" href="#testimonials">Testimonials</a>
+                        <a class="nav-sub-link" href="#certifications">Certifications</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
@@ -736,6 +746,27 @@
 <script src="./assets/js/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./assets/js/main.js"></script>
+
+<script>
+// Toggle caret icon on collapse
+document.querySelectorAll('.nav-parent').forEach(function(el) {
+    el.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+    });
+});
+
+// Close mobile nav when sub-link is clicked
+document.querySelectorAll('.nav-sub-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+        var navCollapse = document.getElementById('navbarNav');
+        if (navCollapse && navCollapse.classList.contains('show')) {
+            var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+            if (bsCollapse) bsCollapse.hide();
+        }
+    });
+});
+</script>
 
 <script>
 fetch('./blogs.json').then(function(r){return r.json()}).then(function(posts){
