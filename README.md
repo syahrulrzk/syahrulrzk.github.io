@@ -21,7 +21,7 @@ Personal portfolio website built with HTML, CSS (Bootstrap + custom), and vanill
 
 ## 🎉 Easter Eggs & Fun Stuff
 
-- **Konami Code** — ketik `↑↑↓↓←→←→BA` di keyboard → confetti rain + body shake! 🎊
+- **Konami Code** — ketik `↑↑↓↓←→←→GM` di keyboard → confetti rain + body shake! 🎊
 - **Cursor Trail** — gerakan mouse ninggalin jejak brand color ✨
 - **Click Particle Burst** — klik di area kosong → partikel meledak ke segala arah 💥
 - **Spinning Profile Photo** — arahin cursor ke foto profil di sidebar → muter looping super kenceng 🌀
